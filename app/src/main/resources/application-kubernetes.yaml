@@ -1,0 +1,20 @@
+# this profile is activated by kubernetes dependencies
+spring:
+  cloud:
+    kubernetes:
+      enabled: true
+      discovery:
+        namespaces:
+           - backend
+        include-not-ready-addresses: true
+eureka:
+  client:
+      enabled: false
+
+DB_SSLMODE: REQUIRE
+
+USER_REST_SERVICE: http://user-rest-service
+NOTIFICATION_REST_SERVICE: http://notification-rest-service
+
+ISSUER_URI: https://authorization.sonam.cloud/issuer
+NEW_RELIC_ENABLED: false

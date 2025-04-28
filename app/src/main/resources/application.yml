@@ -1,0 +1,54 @@
+logging:
+  level:
+    root: warn
+    me:
+      sonam: info
+
+info:
+  app:
+    name: Friendships service
+    description: This application will provide a connection between two users
+    version: 1.0.0
+
+management:
+  endpoint:
+    health:
+      show-details: always
+
+server:
+  port: 9091
+
+spring:
+  application:
+    name: friendship-rest-service
+  r2dbc:
+    url: r2dbc:postgresql://${POSTGRES_SERVICE}/${POSTGRES_DBNAME}
+    username: ${POSTGRES_USERNAME}
+    password: ${POSTGRES_PASSWORD}
+    properties:
+      sslMode:  ${DB_SSLMODE}
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${ISSUER_URI}
+
+user-rest-service:
+  root: ${USER_REST_SERVICE}
+  context: ${user-rest-service.root}/users
+
+notification-rest-service:
+  root: ${NOTIFICATION_REST_SERVICE}
+  context: ${notification-rest-service.root}/notifications
+
+permitpath:
+  - path: /friendships/api/health/*
+    httpMethods: GET
+
+requestFilters:
+  - in: /friendships
+    out: /authentications
+    inHttpMethods: delete
+    accessToken:
+      option: forward
+
