@@ -82,13 +82,13 @@ envs:
 
 health:
   liveness:
-    path: /setting/health/liveness
+    path: /settings/health/liveness
     port: 8080
     initialDelaySeconds: 30
     periodSeconds: 5
     failureThreshold: 5
   readiness:
-    path: /setting/health/readiness
+    path: /settings/health/readiness
     port: 8080
     initialDelaySeconds: 30
     periodSeconds: 5
