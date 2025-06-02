@@ -10,7 +10,7 @@ image:
 imagePullSecrets:
   - name: github-regcred
 nameOverride: ""
-fullnameOverride: "friendship-rest-service"
+fullnameOverride: "setting-rest-service"
 
 serviceAccount:
   # Specifies whether a service account should be created
@@ -74,23 +74,21 @@ affinity: {}
 
 postgres:
   port: "5432"
-  service: friendship-minimal-cluster
-  secretfile: sonam.friendship-minimal-cluster.credentials.postgresql.acid.zalan.do
-  dbname: user
+  service: setting-minimal-cluster
+  secretfile: sonam.setting-minimal-cluster.credentials.postgresql.acid.zalan.do
+  dbname: setting
 
 envs:
-#  - name: OAUTH_AUDIENCES
-#    value: oauth-client,nextjs-client
 
 health:
   liveness:
-    path: /friendships/api/health/liveness
+    path: /setting/health/liveness
     port: 8080
     initialDelaySeconds: 30
     periodSeconds: 5
     failureThreshold: 5
   readiness:
-    path: /friendships/api/health/readiness
+    path: /setting/health/readiness
     port: 8080
     initialDelaySeconds: 30
     periodSeconds: 5

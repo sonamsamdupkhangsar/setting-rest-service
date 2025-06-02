@@ -20,7 +20,7 @@ version = "1.0.0-SNAPSHOT"
 
 tasks {
     jar {
-        archiveBaseName.set("friendship-rest-service") // Set the desired JAR name
+        archiveBaseName.set("setting-rest-service") // Set the desired JAR name
     }
 }
 
@@ -34,7 +34,7 @@ repositories {
     mavenCentral()
     mavenLocal()
     maven {
-        url = uri("https://maven.pkg.github.com/sonamsamdupkhangsar/friendship-api")
+        url = uri("https://maven.pkg.github.com/sonamsamdupkhangsar/setting-api")
         credentials {
             username = System.getenv("USERNAME")
             password = System.getenv("PERSONAL_ACCESS_TOKEN")
@@ -69,7 +69,7 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     testImplementation("com.squareup.okhttp3:mockwebserver:4.0.1")
     testImplementation("org.springframework.security:spring-security-test")
-    implementation("me.sonam:friendship-api:1.0.0-SNAPSHOT")
+    implementation("me.sonam:setting-api:1.0.0-SNAPSHOT")
     implementation("me.sonam:token-filter:1.0.5-SNAPSHOT")
 
 }
@@ -83,7 +83,7 @@ java {
 
 application {
     // Define the main class for the application.
-    mainClass = "me.sonam.friendship.Application"
+    mainClass = "me.sonam.setting.Application"
 }
 
 tasks.named<Test>("test") {

@@ -2,10 +2,10 @@
 apiVersion: "acid.zalan.do/v1"
 kind: postgresql
 metadata:
-  name: friendship-minimal-cluster
+  name: setting-minimal-cluster
   namespace: backend
 spec:
-  teamId: "friendship"
+  teamId: "setting"
   volume:
     size: 1Gi
     storageClass: do-block-storage
@@ -16,6 +16,6 @@ spec:
     - createdb
     sonam_user: []  # role for application foo
   databases:
-    account: sonam  # dbname: owner
+    setting: sonam  # dbname: owner
   postgresql:
     version: "15"

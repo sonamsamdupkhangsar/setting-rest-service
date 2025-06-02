@@ -1,10 +1,10 @@
 # This yaml file is for loading local database, server port, disable eureka and set jwt-rest-service endpoint
 server:
-  port: 8084
+  port: 8089
 
 POSTGRES_USERNAME: test
 POSTGRES_PASSWORD: test
-POSTGRES_DBNAME: friendships
+POSTGRES_DBNAME: setting
 POSTGRES_SERVICE: localhost:5432
 DB_SSLMODE: disable
 
@@ -18,16 +18,10 @@ eureka:
     serviceUrl:
       defaultZone: http://${EUREKA_USER}:${EUREKA_PASSWORD}@${EUREKA_HOST}/eureka
 
-USER_REST_SERVICE: http://user-rest-service
-NOTIFICATION_REST_SERVICE: http://notification-rest-service
-
 ISSUER_ADDRESS: http://api-gateway:9001
 
 ISSUER_URI: ${ISSUER_ADDRESS}/issuer
-OAUTH_AUDIENCES: oauth-client
 JWT_SET_URI: ${ISSUER_ADDRESS}/issuer/.well-known/jwks.json
-
-REQUEST_SCOPES: message.read message.write
 
 spring:
   cloud:
