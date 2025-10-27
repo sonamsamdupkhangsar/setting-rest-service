@@ -24,7 +24,6 @@ NOTIFICATION_REST_SERVICE: http://notification-rest-service
 ISSUER_ADDRESS: http://host.docker.internal:9001
 
 ISSUER_URI: ${ISSUER_ADDRESS}/issuer
-OAUTH_AUDIENCES: oauth-client
 JWT_SET_URI: ${ISSUER_ADDRESS}/issuer/.well-known/jwks.json
 
 REQUEST_SCOPES: message.read message.write
