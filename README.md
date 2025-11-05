@@ -1,6 +1,7 @@
 # friendship-rest-service
 This is the microservice deployment for the [friendship-api](https://github.com/sonamsamdupkhangsar/friendship-api)
 
+
 ## Run locally using profile
 Use local profile `application-local.yml` to run locally.
 
