@@ -23,8 +23,8 @@ NOTIFICATION_REST_SERVICE: http://notification-rest-service
 
 ISSUER_ADDRESS: http://host.docker.internal:9001
 
-ISSUER_URI: ${ISSUER_ADDRESS}/issuer
-JWT_SET_URI: ${ISSUER_ADDRESS}/issuer/.well-known/jwks.json
+ISSUER_URI: ${ISSUER_ADDRESS}
+JWT_SET_URI: ${ISSUER_ADDRESS}/oauth2/jwks
 
 REQUEST_SCOPES: message.read message.write
 

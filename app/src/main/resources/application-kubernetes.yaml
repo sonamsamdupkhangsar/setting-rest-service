@@ -16,5 +16,7 @@ DB_SSLMODE: REQUIRE
 USER_REST_SERVICE: http://user-rest-service
 NOTIFICATION_REST_SERVICE: http://notification-rest-service
 
-ISSUER_URI: https://authorization.sonam.cloud/issuer
+ISSUER_ADDRESS: https://platform.openissuer.com
+ISSUER_URI: ${ISSUER_ADDRESS}
+JWT_SET_URI: ${ISSUER_ADDRESS}/oauth2/jwks
 NEW_RELIC_ENABLED: false

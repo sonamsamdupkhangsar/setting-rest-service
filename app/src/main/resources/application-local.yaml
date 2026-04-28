@@ -18,10 +18,10 @@ eureka:
     serviceUrl:
       defaultZone: http://${EUREKA_USER}:${EUREKA_PASSWORD}@${EUREKA_HOST}/eureka
 
-ISSUER_ADDRESS: http://api-gateway:9001
+ISSUER_ADDRESS: http://platform.openissuer.test:9001
 
-ISSUER_URI: ${ISSUER_ADDRESS}/issuer
-JWT_SET_URI: ${ISSUER_ADDRESS}/issuer/.well-known/jwks.json
+ISSUER_URI: ${ISSUER_ADDRESS}
+JWT_SET_URI: ${ISSUER_ADDRESS}/oauth2/jwks
 
 spring:
   cloud:

@@ -15,6 +15,9 @@ management:
     health:
       show-details: always
 
+openissuer:
+  trusted-issuer-host-suffixes: ${TRUSTED_ISSUER_HOST_SUFFIXES:openissuer.test,openissuer.com}
+
 server:
   port: 8080
 
@@ -31,7 +34,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: ${ISSUER_URI}
+          jwk-set-uri: ${JWT_SET_URI}
 
 user-rest-service:
   root: ${USER_REST_SERVICE}
@@ -46,5 +49,3 @@ permitpath:
     httpMethods: GET
 
 requestFilters:
-
-
