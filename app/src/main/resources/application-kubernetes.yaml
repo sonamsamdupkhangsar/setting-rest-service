@@ -5,18 +5,18 @@ spring:
       enabled: true
       discovery:
         namespaces:
-           - backend
+           - main
         include-not-ready-addresses: true
 eureka:
   client:
       enabled: false
 
-DB_SSLMODE: REQUIRE
+DB_SSLMODE: disable
 
 USER_REST_SERVICE: http://user-rest-service
 NOTIFICATION_REST_SERVICE: http://notification-rest-service
 
-ISSUER_ADDRESS: https://platform.openissuer.com
+ISSUER_ADDRESS: https://platform.openissuer.com/issuer
 ISSUER_URI: ${ISSUER_ADDRESS}
 JWT_SET_URI: ${ISSUER_ADDRESS}/oauth2/jwks
 NEW_RELIC_ENABLED: false

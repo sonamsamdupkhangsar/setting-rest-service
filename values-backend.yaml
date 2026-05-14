@@ -5,6 +5,8 @@
 replicaCount: 1
 
 image:
+  repository: ghcr.io/sonamsamdupkhangsar/setting-rest-service
+  tag: multitenancy
   pullPolicy: Always
 
 imagePullSecrets:
@@ -14,12 +16,25 @@ fullnameOverride: "setting-rest-service"
 
 serviceAccount:
   # Specifies whether a service account should be created
-  create: false
+  create: true
   # Annotations to add to the service account
   annotations: {}
   # The name of the service account to use.
   # If not set and create is true, a name is generated using the fullname template
   name:
+
+rbac:
+  create: true
+  rules:
+    - apiGroups:
+        - ""
+      resources:
+        - services
+        - endpoints
+      verbs:
+        - get
+        - list
+        - watch
 
 podSecurityContext: {}
 # fsGroup: 2000
@@ -43,16 +58,6 @@ istio:
 
 ingress:
   enabled: false
-#  ingressClass: nginx
-#  hosts:
-#    - host: user-rest-service.sonam.cloud
-#      paths:
-#        - path: /public
-#          pathType: Prefix
-#  tls:
-#    - secretName: sonam.cloud
-#      hosts:
-#        - "*.sonam.cloud"
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
@@ -73,11 +78,25 @@ affinity: {}
 
 postgres:
   port: "5432"
-  service: setting-minimal-cluster
-  secretfile: sonam.setting-minimal-cluster.credentials.postgresql.acid.zalan.do
+  service: setting-db-rw
+  secretfile: setting-db-app
   dbname: setting
 
 envs:
+  - name: DB_SSLMODE
+    value: disable
+  - name: SPRING_PROFILES_ACTIVE
+    value: kubernetes
+  - name: ISSUER_URI
+    value: https://platform.openissuer.com/issuer
+  - name: JWT_SET_URI
+    value: https://platform.openissuer.com/issuer/oauth2/jwks
+  - name: USER_REST_SERVICE
+    value: http://user-rest-service
+  - name: NOTIFICATION_REST_SERVICE
+    value: http://notification-rest-service
+  - name: NEW_RELIC_ENABLED
+    value: false
 
 health:
   liveness:
