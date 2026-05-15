@@ -84,7 +84,7 @@ postgres:
 
 envs:
   - name: DB_SSLMODE
-    value: disable
+    value: REQUIRE
   - name: SPRING_PROFILES_ACTIVE
     value: kubernetes
   - name: ISSUER_URI
